@@ -17,6 +17,15 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3306
+          name: mysql
+
+        volumeMounts:
+          - name: local
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: local
+          persistentVolumeClaim:
+            claimName: local
 
 ---
 
@@ -27,7 +36,6 @@ metadata:
   labels:
     app: php
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: php
