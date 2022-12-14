@@ -23,7 +23,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: local
 spec:
-  storageClassName: manual
+  storageClassName: standard-rwo
   resources:
     requests:
       storage: 100Mi

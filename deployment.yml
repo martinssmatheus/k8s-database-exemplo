@@ -13,7 +13,9 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: martinssmatheus/meubanco:1.0
+        image: martinssmatheus/projeto-database:1.0
+        args:
+        - "--ignore-db-dir=lost+found"
         imagePullPolicy: Always
         ports:
         - containerPort: 3306
@@ -46,7 +48,7 @@ spec:
     spec:
       containers:
       - name: php
-        image: martinssmatheus/php:1.0
+        image: martinssmatheus/projeto-backend:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
